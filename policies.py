@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-
+import numpy as np
 
 class MLP_heb(nn.Module):
     "MLP, no bias"
@@ -40,7 +40,7 @@ class CNN_heb(nn.Module):
     
     def forward(self, ob):
         
-        state = torch.as_tensor(ob.copy())
+        state = torch.as_tensor(np.array(ob.copy()))
         state = state.float()
         
         x1 = self.pool(torch.tanh(self.conv1(state)))

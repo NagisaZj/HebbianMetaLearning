@@ -34,11 +34,14 @@ pip install -r requirements.txt
  ```bash
 
 # train Hebbian network to solve the racing car
-python train_hebb.py --environment CarRacing-v0
+CUDA_VISIBLE_DEVICES=4 python train_hebb.py --environment Walker2d-v2
+CUDA_VISIBLE_DEVICES=5 python train_hebb.py --environment Ant-v2
+CUDA_VISIBLE_DEVICES=6 python train_hebb.py --environment Humanoid-v2
+CUDA_VISIBLE_DEVICES=0 python train_hebb.py --environment AntBulletEnv-v0
 
 
 # train Hebbian network specifying evolution parameters, eg. 
-python train_hebb.py --environment CarRacing-v0 --hebb_rule ABCD_lr --generations 300 --popsize 200 --print_every 1 --init_weights uni --lr 0.2 --sigma 0.1 --decay 0.995 --threads -1 --distribution normal
+python train_hebb.py --environment CarRacing-v0 --hebb_rule ABCD_lr --generations 300 --popsize 200 --print_every 1 --init_weights uni --lr 0.2 --sigma 0.1 --decay 0.995 --threads -1 --distribution normal 
 
 ```
 
